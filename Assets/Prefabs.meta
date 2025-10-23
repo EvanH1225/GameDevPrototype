@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9bb2b49b125741346a7b57a98609a66e
+=======
+guid: e05516560be09c9469ab538905817f54
+>>>>>>> origin/inventory-dev
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

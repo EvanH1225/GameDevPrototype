@@ -56,5 +56,9 @@
         "temp/": true,
         "Temp/": true
     },
+<<<<<<< HEAD
     "dotnet.defaultSolution": "GameDevPrototype.sln"
+=======
+    "dotnet.defaultSolution": "inv system.sln"
+>>>>>>> origin/inventory-dev
 }

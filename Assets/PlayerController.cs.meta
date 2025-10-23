@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d239195a833254641806ebe69a1453cc
+=======
+guid: 0adf201b4f897fe4fb01f798f4cc8147
+>>>>>>> origin/inventory-dev
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
