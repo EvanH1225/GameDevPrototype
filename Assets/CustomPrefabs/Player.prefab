@@ -128,6 +128,11 @@ MonoBehaviour:
   jumpHeight: 2
   mouseSensitivity: 1
   playerCamera: {fileID: 6509398831676176795}
+  pickupRange: 0
+  pickupLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  inventoryManager: {fileID: 0}
 --- !u!143 &4936065824548911958
 CharacterController:
   m_ObjectHideFlags: 0
@@ -227,6 +232,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 050564ee-a2a8-4d61-acfc-9dcaeb4f2609
     m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4622081071538597251}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPickup
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5908a9b0-23a5-4356-8d0e-493179bc6877
+    m_ActionName: 'Player/Pickup[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
