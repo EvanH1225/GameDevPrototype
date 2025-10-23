@@ -1,22 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DayNightCycle : MonoBehaviour
 {
+    public static event Action<int> OnDayChanged;
+
     public float time = 0f; //0-.5 is day, .5-1 is night
     public float minutesInDay = 10f;
+    public int currentDay = 1;
 
     // chatgpt for sun logic
     public Light sun;
     public Gradient sunColorGradient;
     public AnimationCurve sunIntensityCurve;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -27,6 +25,8 @@ public class DayNightCycle : MonoBehaviour
         {
             time -= 1f;
             // do new game logic here
+            currentDay++;
+            OnDayChanged?.Invoke(currentDay);
         }
         UpdateLighting();
     }
