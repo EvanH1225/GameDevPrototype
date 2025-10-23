@@ -36,9 +36,6 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
-
-        Debug.DrawRay(transform.position, Vector3.down * 1.1f, Color.green);
-        Debug.Log("Grounded: " + controller.isGrounded);
     }
 
 
@@ -65,7 +62,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpPressed = false;
         }
-        Debug.Log("Jump Action: " + context.phase);
     }
 
 
@@ -79,7 +75,6 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
-        Debug.Log("Grounded: " + controller.isGrounded);
         if (jumpPressed && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
