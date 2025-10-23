@@ -84,5 +84,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Utilities/CustomMotionTexture/Models/WheelMovecs.FBX
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Utilities/CustomMotionTexture/Models/WheelMovecs.FBX
   uploadId: 235056

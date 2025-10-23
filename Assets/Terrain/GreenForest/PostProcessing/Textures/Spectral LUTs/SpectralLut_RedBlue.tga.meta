@@ -62,5 +62,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Textures/Spectral LUTs/SpectralLut_RedBlue.tga
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Textures/Spectral LUTs/SpectralLut_RedBlue.tga
   uploadId: 235056

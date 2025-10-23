@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Editor/PropertyDrawers/MinDrawer.cs
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Editor/PropertyDrawers/MinDrawer.cs
   uploadId: 235056

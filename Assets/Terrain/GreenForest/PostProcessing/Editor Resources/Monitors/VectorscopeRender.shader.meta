@@ -12,5 +12,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Editor Resources/Monitors/VectorscopeRender.shader
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Editor Resources/Monitors/VectorscopeRender.shader
   uploadId: 235056

@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Runtime/Attributes/TrackballGroupAttribute.cs
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Runtime/Attributes/TrackballGroupAttribute.cs
   uploadId: 235056

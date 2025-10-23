@@ -79,5 +79,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Utilities/CustomMotionTexture/Textures/DebugMotionVectors.png
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Utilities/CustomMotionTexture/Textures/DebugMotionVectors.png
   uploadId: 235056

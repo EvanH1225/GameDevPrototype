@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Editor/Models/GrainModelEditor.cs
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Editor/Models/GrainModelEditor.cs
   uploadId: 235056

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4052329360818378}
   - component: {fileID: 33357689942045608}
   - component: {fileID: 23022665176233292}
+  - component: {fileID: -1741622863500341173}
   m_Layer: 0
   m_Name: Oak2
   m_TagString: Untagged
@@ -84,3 +85,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &-1741622863500341173
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969506690038558}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6898102
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.38531563
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.18589574
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

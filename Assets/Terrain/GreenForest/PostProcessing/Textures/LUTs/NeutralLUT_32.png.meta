@@ -60,5 +60,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Textures/LUTs/NeutralLUT_32.png
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Textures/LUTs/NeutralLUT_32.png
   uploadId: 235056

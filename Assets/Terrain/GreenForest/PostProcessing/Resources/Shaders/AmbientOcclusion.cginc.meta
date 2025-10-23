@@ -12,5 +12,5 @@ AssetOrigin:
   productId: 22762
   packageName: Green Forest
   packageVersion: 1.0
-  assetPath: Assets/GreenForest/PostProcessing/Resources/Shaders/AmbientOcclusion.cginc
+  assetPath: Assets/Terrain/GreenForest/PostProcessing/Resources/Shaders/AmbientOcclusion.cginc
   uploadId: 235056
