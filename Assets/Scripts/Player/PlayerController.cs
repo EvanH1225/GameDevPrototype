@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     // Movement settings
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
-    public float jumpHeight = 2f;
+    public float jumpHeight = 0.1f;
 
     // Mouse settings
     public float mouseSensitivity = 1f;
