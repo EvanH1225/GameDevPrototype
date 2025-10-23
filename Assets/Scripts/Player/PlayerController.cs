@@ -21,11 +21,17 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private bool jumpPressed;
 
+    private bool pickupPressed;
+    public float pickupRange;
+    public LayerMask pickupLayer;
+    public InventoryManager inventoryManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -36,9 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
-
-        Debug.DrawRay(transform.position, Vector3.down * 1.1f, Color.green);
-        Debug.Log("Grounded: " + controller.isGrounded);
+        HandlePickup();
     }
 
 
@@ -65,7 +69,14 @@ public class PlayerController : MonoBehaviour
         {
             jumpPressed = false;
         }
-        Debug.Log("Jump Action: " + context.phase);
+    }
+
+    public void OnPickup(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            pickupPressed = true;
+        } 
     }
 
 
@@ -79,9 +90,9 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
-        Debug.Log("Grounded: " + controller.isGrounded);
         if (jumpPressed && controller.isGrounded)
         {
+            Debug.DrawRay(playerCamera.position, playerCamera.forward * 20, Color.blue, 5);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
@@ -100,5 +111,27 @@ public class PlayerController : MonoBehaviour
 
         playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    void HandlePickup()
+    {
+        if (pickupPressed)
+        {
+            Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+            Debug.DrawRay(ray.origin, ray.direction * pickupRange, Color.green, 2f);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, pickupRange, pickupLayer))
+            {
+                Debug.Log("WELL WE HIT SOMETHING");
+                Item item = hit.collider.GetComponent<Item>();
+                if (item != null)
+                {
+                    Debug.Log("HIT AN ITEM!!!");
+                    item.OnPickup(inventoryManager);
+                }
+            }
+            
+            pickupPressed = false;
+        }
     }
 }
