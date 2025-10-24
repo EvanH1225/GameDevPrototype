@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public InputActionReference attackAction; // assign this in Inspector
+
     // Movement settings
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
@@ -56,6 +59,25 @@ public class PlayerController : MonoBehaviour
         HandlePickup();
         HandleAttack();
     }
+
+    void OnEnable()
+    {
+        if (attackAction != null && attackAction.action != null)
+        {
+            attackAction.action.performed += OnAttack;
+            attackAction.action.Enable();
+        }
+    }
+
+    void OnDisable()
+    {
+        if (attackAction != null && attackAction.action != null)
+        {
+            attackAction.action.performed -= OnAttack;
+            attackAction.action.Disable();
+        }
+    }
+
 
 
     public void OnMove(InputAction.CallbackContext context)
@@ -181,26 +203,28 @@ public class PlayerController : MonoBehaviour
 
     void HandleAttack()
     {
-        if (attackPressed)
+        if (!attackPressed) { return; }
+
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        Debug.DrawRay(ray.origin, ray.direction * playerRange, Color.red, 2f);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, playerRange))
         {
-            Ray ray = new Ray(playerCamera.position, playerCamera.forward);
-
-            if (Physics.Raycast(ray, out RaycastHit hit, playerRange, attackLayer))
+            Debug.Log("Hit: " + hit.collider.name + " Layer: " + LayerMask.LayerToName(hit.collider.gameObject.layer));
+            Enemy enemy = hit.collider.GetComponent<Enemy>() ?? hit.collider.GetComponentInParent<Enemy>();
+            if (enemy != null)
             {
-                Enemy enemy = hit.collider.GetComponent<Enemy>();
-                if (enemy == null)
-                {
-                    enemy = hit.collider.GetComponentInParent<Enemy>();
-                }
-                if (enemy != null)
-                {
-                    Debug.Log("HIT ENEMY");
-                    enemy.TakeDamage();
-                    enemy.ApplyKnockback(playerCamera.position);
-                }
+                Debug.Log("HIT ENEMY");
+                enemy.TakeDamage();
+                enemy.ApplyKnockback(playerCamera.position);
             }
-
-            attackPressed = false;
         }
+        else
+        {
+            Debug.Log("Missed!");
+        }
+
+        attackPressed = false;
     }
+
 }
