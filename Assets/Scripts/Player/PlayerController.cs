@@ -10,10 +10,14 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 0.1f;
 
+    // Health stats
+    private HealthStats healthStats;
+    private bool canTakeDamage = true;
+    public float damageCooldown = 1f;
+
     // Mouse settings
     public float mouseSensitivity = 1f;
     public Transform playerCamera;
-
     private CharacterController controller;
     private Vector3 velocity;
     private float xRotation = 0f;
@@ -21,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private bool jumpPressed;
 
+    // Pickup settings
     private bool pickupPressed;
     public float pickupRange;
     public LayerMask pickupLayer;
@@ -31,6 +36,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        healthStats = GetComponent<HealthStats>();
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -113,6 +119,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
+
     void HandlePickup()
     {
         if (pickupPressed)
@@ -133,5 +140,23 @@ public class PlayerController : MonoBehaviour
             
             pickupPressed = false;
         }
+    }
+
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Enemy") && canTakeDamage)
+        {
+            healthStats.TakeDamage(10f);
+            StartCoroutine(DamageCooldown());
+        }
+    }
+
+
+    IEnumerator DamageCooldown()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(damageCooldown);
+        canTakeDamage = true;
     }
 }

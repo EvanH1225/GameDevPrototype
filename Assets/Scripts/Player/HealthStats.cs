@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class HealthStats : MonoBehaviour
 {
     // UI elements
     public Image healthBarFill;
@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public GameObject gameOverScreen;
 
     // Hunger stats
-    private float hungerDecreaseRate = 2f;
+    private float hungerDecreaseRate = 0.1f;
 
     // Player stats
     private bool isDead = false;
@@ -59,6 +59,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (isDead) return;
+
+        Debug.Log("yooooooo");
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
