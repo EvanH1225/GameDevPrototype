@@ -27,3 +27,7 @@ Open the folder in Unity.
 - Attack: Left Click
 - Pick up item: F
 - Open/Close inventory: E
+
+## How to play
+
+Survive 4 days by avoiding or directly taking on the enemies. Be careful though, if they find you they will attack you. Have fun and try to survive!
