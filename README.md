@@ -11,8 +11,6 @@ git checkout develop
 
 ```
 
-## Getting Started
-
 ### Option 2: Download the 'develop' branch directly
 Go to the repository’s develop branch.
 
