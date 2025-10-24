@@ -19,3 +19,11 @@ Click Code -> Download ZIP.
 Extract the ZIP.
 
 Open the folder in Unity.
+
+## Controls
+
+- Look around: Mouse
+- Move: WASD
+- Attack: Left Click
+- Pick up item: F
+- Open/Close inventory: E
