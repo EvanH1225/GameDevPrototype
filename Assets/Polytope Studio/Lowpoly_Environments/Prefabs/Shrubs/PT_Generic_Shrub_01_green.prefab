@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stick
   quantity: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300006, guid: 75d23c909658dec419a00762106e1e10, type: 3}
   itemDescription: 
 --- !u!65 &-8482109466316473603
 BoxCollider:

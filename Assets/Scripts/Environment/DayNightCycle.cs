@@ -5,7 +5,7 @@ using System;
 
 public class DayNightCycle : MonoBehaviour
 {
-    public static event Action<int> OnDayChanged;
+    public static event System.Action<int> OnDayChanged;
 
     public float time = 0f; //0-.5 is day, .5-1 is night
     public float minutesInDay = 10f;

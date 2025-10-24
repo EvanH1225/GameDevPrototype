@@ -19,30 +19,6 @@ public class Item : MonoBehaviour
     [SerializeField]
     private string itemDescription;
 
-    // private InventoryManager inventoryManager;
-
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
-    // }
-
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     if (collision.gameObject.tag == "Player")
-    //     {
-    //         int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
-    //         if (leftOverItems <= 0)
-    //         {
-    //             Destroy(gameObject);
-    //         }
-    //         else
-    //         {
-    //             quantity = leftOverItems;
-    //         }
-    //     }
-    // }
-
     public void OnPickup(InventoryManager inventory)
     {
         int leftOverItems = inventory.AddItem(itemName, quantity, sprite, itemDescription);

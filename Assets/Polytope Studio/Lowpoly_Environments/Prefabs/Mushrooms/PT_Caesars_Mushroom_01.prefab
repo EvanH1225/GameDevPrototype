@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Mushroom
   quantity: 1
-  sprite: {fileID: 21300000, guid: 1fff2ada470396549beb1583117d6bf4, type: 3}
+  sprite: {fileID: 21300044, guid: 6a35614600a51dc48a56033b6f154452, type: 3}
   itemDescription: 
 --- !u!65 &-8840847748889794615
 BoxCollider:

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,10 +27,14 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
 
     // Pickup settings
+    public float playerRange = 6f;
+
     private bool pickupPressed;
-    public float pickupRange;
     public LayerMask pickupLayer;
     public InventoryManager inventoryManager;
+
+    private bool attackPressed;
+    public LayerMask attackLayer;
 
 
     // Start is called before the first frame update
@@ -49,6 +54,7 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         HandleLook();
         HandlePickup();
+        HandleAttack();
     }
 
 
@@ -82,7 +88,25 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             pickupPressed = true;
-        } 
+        }
+
+        if (context.canceled)
+        {
+            pickupPressed = false;
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            attackPressed = true;
+        }
+
+        if (context.canceled)
+        {
+            attackPressed = false;
+        }
     }
 
 
@@ -125,23 +149,19 @@ public class PlayerController : MonoBehaviour
         if (pickupPressed)
         {
             Ray ray = new Ray(playerCamera.position, playerCamera.forward);
-            Debug.DrawRay(ray.origin, ray.direction * pickupRange, Color.green, 2f);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, pickupRange, pickupLayer))
+            if (Physics.Raycast(ray, out RaycastHit hit, playerRange, pickupLayer))
             {
-                Debug.Log("WELL WE HIT SOMETHING");
                 Item item = hit.collider.GetComponent<Item>();
                 if (item != null)
                 {
-                    Debug.Log("HIT AN ITEM!!!");
                     item.OnPickup(inventoryManager);
                 }
             }
-            
+
             pickupPressed = false;
         }
     }
-
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -152,11 +172,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     IEnumerator DamageCooldown()
     {
         canTakeDamage = false;
         yield return new WaitForSeconds(damageCooldown);
         canTakeDamage = true;
+    }
+
+    void HandleAttack()
+    {
+        if (attackPressed)
+        {
+            Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, playerRange, attackLayer))
+            {
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+                if (enemy == null)
+                {
+                    enemy = hit.collider.GetComponentInParent<Enemy>();
+                }
+                if (enemy != null)
+                {
+                    Debug.Log("HIT ENEMY");
+                    enemy.TakeDamage();
+                    enemy.ApplyKnockback(playerCamera.position);
+                }
+            }
+
+            attackPressed = false;
+        }
     }
 }

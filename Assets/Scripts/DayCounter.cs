@@ -6,6 +6,9 @@ using TMPro;
 public class DayCounter : MonoBehaviour
 {
     public TMP_Text dayText;
+    public GameObject youWinScreen;
+
+    public int daysTillWin;
 
     void OnEnable()
     {
@@ -20,5 +23,9 @@ public class DayCounter : MonoBehaviour
     void UpdateDayText(int newDay)
     {
         dayText.text = $"Day {newDay}";
+        if (newDay >= daysTillWin)
+        {
+            youWinScreen.SetActive(true);
+        }
     }
 }
