@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8791927627028684892}
   - component: {fileID: 4350560277981771188}
   - component: {fileID: -5131455308072074163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.3, y: 1.3, z: 1.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4350560277981771188
 MonoBehaviour:
@@ -119,7 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80be1941eb707de4d84772568be0d405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
+  health: 4
+  knockbackForce: 5
 --- !u!54 &-5131455308072074163
 Rigidbody:
   m_ObjectHideFlags: 0
